@@ -1,0 +1,14 @@
+{
+    "name": "abelo/blog",
+    "description": "Простой блог на чистом PHP + MySQL + Smarty",
+    "require": {
+        "php": ">=8.1",
+        "ext-pdo": "*",
+        "smarty/smarty": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
