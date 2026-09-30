@@ -11,6 +11,8 @@ use App\Repository\CategoryRepository;
 
 final class ArticleController
 {
+    private const SIMILAR_LIMIT = 3;
+
     public function __construct(
         private readonly View $view,
         private readonly ArticleRepository $articles,
@@ -29,6 +31,7 @@ final class ArticleController
             'article'    => $article,
             'paragraphs' => preg_split('/\R{2,}/', trim($article['content'])),
             'categories' => $this->categories->findByArticle($article['id']),
+            'similar'    => $this->articles->findSimilar($article['id'], self::SIMILAR_LIMIT),
         ]);
     }
 }

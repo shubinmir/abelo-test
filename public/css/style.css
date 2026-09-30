@@ -235,3 +235,7 @@ main.container {
     font-size: 17px;
     line-height: 1.75;
 }
+
+.similar {
+    margin-top: 48px;
+}

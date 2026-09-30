@@ -26,4 +26,15 @@
             {/foreach}
         </div>
     </article>
+
+    {if $similar}
+        <section class="similar">
+            <h2>Похожие статьи</h2>
+            <div class="grid">
+                {foreach $similar as $item}
+                    {include file="partials/article_card.tpl" article=$item}
+                {/foreach}
+            </div>
+        </section>
+    {/if}
 {/block}
