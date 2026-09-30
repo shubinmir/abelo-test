@@ -37,4 +37,22 @@ final class ArticleRepository
 
         return $stmt->fetchAll();
     }
+
+    public function findBySlug(string $slug): ?array
+    {
+        $stmt = $this->pdo->prepare(
+            'SELECT id, title, slug, image, description, content, views, published_at
+             FROM articles
+             WHERE slug = ?'
+        );
+        $stmt->execute([$slug]);
+
+        return $stmt->fetch() ?: null;
+    }
+
+    public function incrementViews(int $id): void
+    {
+        $stmt = $this->pdo->prepare('UPDATE articles SET views = views + 1 WHERE id = ?');
+        $stmt->execute([$id]);
+    }
 }

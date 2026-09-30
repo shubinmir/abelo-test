@@ -20,6 +20,20 @@ final class CategoryRepository
         return $stmt->fetch() ?: null;
     }
 
+    public function findByArticle(int $articleId): array
+    {
+        $stmt = $this->pdo->prepare(
+            'SELECT c.id, c.name, c.slug
+             FROM categories c
+             JOIN article_category ac ON ac.category_id = c.id
+             WHERE ac.article_id = ?
+             ORDER BY c.name'
+        );
+        $stmt->execute([$articleId]);
+
+        return $stmt->fetchAll();
+    }
+
     public function findWithLatestArticles(int $limit): array
     {
         $stmt = $this->pdo->prepare(

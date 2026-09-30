@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Controller\ArticleController;
 use App\Controller\CategoryController;
 use App\Controller\HomeController;
 use App\Core\Database;
@@ -23,10 +24,12 @@ $articleRepository = new ArticleRepository($pdo);
 
 $home = new HomeController($view, $categoryRepository);
 $category = new CategoryController($view, $categoryRepository, $articleRepository, $config['per_page']);
+$article = new ArticleController($view, $articleRepository, $categoryRepository);
 
 $router = new Router();
 $router->get('/', fn () => $home->index());
 $router->get('/category/{slug}', fn (array $p) => $category->show($p['slug']));
+$router->get('/article/{slug}', fn (array $p) => $article->show($p['slug']));
 
 try {
     echo $router->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
