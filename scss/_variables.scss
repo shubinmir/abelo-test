@@ -1,0 +1,20 @@
+$color-text: #1f2430;
+$color-muted: #6b7280;
+$color-bg: #f6f7fb;
+$color-surface: #fff;
+$color-border: #e5e7eb;
+$color-accent: #4f46e5;
+$color-accent-dark: #3730a3;
+$color-accent-light: #eef2ff;
+
+$font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+
+$radius: 8px;
+$radius-sm: 6px;
+$shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+@mixin surface {
+    background: $color-surface;
+    border-radius: $radius;
+    box-shadow: $shadow;
+}

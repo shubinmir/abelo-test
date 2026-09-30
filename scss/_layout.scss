@@ -1,0 +1,36 @@
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+main.container {
+    padding-top: 32px;
+    padding-bottom: 48px;
+}
+
+.header {
+    background: $color-surface;
+    border-bottom: 1px solid $color-border;
+
+    a {
+        display: inline-block;
+        padding: 16px 0;
+        font-size: 22px;
+        font-weight: 700;
+        color: $color-text;
+    }
+}
+
+.footer {
+    padding: 24px 0;
+    border-top: 1px solid $color-border;
+    font-size: 14px;
+    color: $color-muted;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}

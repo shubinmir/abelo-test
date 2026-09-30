@@ -10,5 +10,12 @@
         "psr-4": {
             "App\\": "src/"
         }
+    },
+    "require-dev": {
+        "scssphp/scssphp": "^2.1"
+    },
+    "scripts": {
+        "build-css": "php bin/build-css.php",
+        "seed": "php bin/seed.php"
     }
 }
