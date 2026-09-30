@@ -10,4 +10,5 @@ return [
         'user'     => getenv('DB_USER') ?: 'blog',
         'password' => getenv('DB_PASSWORD') ?: 'secret',
     ],
+    'per_page' => 6,
 ];
